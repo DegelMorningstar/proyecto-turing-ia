@@ -1,16 +1,35 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.brandTitle {
+  text-decoration: none;
+  font-size: 3rem;
+  color: white;
+}
+.brandTitle:hover {
+  color: #cccccc;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.navbar {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: #0c62fb;
+  height: 100px;
+}
+
+/* carousel */
+
+.CarouselContent {
+  padding: 2rem 1rem;
 }
