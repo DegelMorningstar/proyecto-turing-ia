@@ -1,6 +1,14 @@
 .hero {
   width: 100%;
-  height: 90vh;
+  height: 88vh;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.4);
 }
 .videoBG {
   width: 100%;
@@ -29,11 +37,11 @@
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   color: #0c62fb;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .textcontent {
-  font-size: 4.3rem;
-  line-height: 6rem;
+  font-size: 2.3rem;
+  line-height: 2.8rem;
   padding-bottom: 2.7rem;
   margin-block-start: 1em;
   margin-block-end: 1em;
@@ -42,10 +50,55 @@
 }
 .sectioncontent {
   width: 100%;
-  height: 100vh;
   padding-top: 150px;
 }
+.bluesection {
+  background-color: #00001E;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 80px;
+}
+.bluesection h1{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: #fff;
+  margin-top: 10px;
+}
+.bluesection h2 {
+  color: #fff;
+  font-size: 2.3rem;
+  line-height: 2.8rem;
+  padding-bottom: 2.7rem;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+}
+.bluesection p {
+  border-left: 1px solid #fff;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding: 15px;
+  padding-bottom: 2.7rem;
 
+}
+.bluesection .link {
+  text-decoration: none;
+  color: #6c8fff;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding: 10px;
+}
+.bluesection .link:hover {
+  color: #a3bfff;
+}
+.blueimagewrapper{
+  padding: 0px 30px;
+  margin-bottom: 10px;
+
+}
 .greysection {
   width: 100%;
   /* height: 300px; */
@@ -100,6 +153,12 @@
   width: 350px;
   height: auto;
 }
+.mapcontact{
+  width: 100%;
+  height: 600px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
 
 
 
@@ -130,4 +189,37 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Begin Media Queries*/
+@media screen and (max-width: 850px) {
+  .bluesection p {
+    font-size: 0.8rem;
+    padding: 5px;
+  
+  }
+  .bluesection .link {
+    font-size: 0.8rem;
+    line-height: 2rem;
+    padding: 1px;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  
+}
+
+@media screen and (max-width: 410px) {
+   .hero {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .contentHero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 3rem;
+  } 
+  .contentHero{
+    padding: 30px;
+  } 
 }

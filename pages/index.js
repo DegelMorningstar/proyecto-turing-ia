@@ -1,130 +1,248 @@
-import Hero from '../components/Hero'
-import { Layout } from '../components/Layout'
+import Link from 'next/link'  
+import {useBackground} from '../hooks/useBackground'
 import Styles from '../styles/Styles.module.css'
+import { Layout } from '../components/Layout'
+import Hero from '../components/Hero'
 import Carousel from '../components/Carousel'
-
+import Card from '../components/Card'
+import Gallery from '../components/Gallery'
+import Picture from '../components/Picture'
+import { proyectos } from '../__mocks__/proyects';
+import { tech } from '../__mocks__/tecnologias';
 
 const index = () => {
+  const page = 'Inicio';
+  const { background, isLoaded} = useBackground (page);
+
   return (
     <>
-      <Hero />
-      <Layout title='Home | Slalom'>
+      {
+        isLoaded && (<Hero 
+          title={background.title}
+          text={background.text}
+          videoUrl={background.videoUrl}
+        />)
+      }
+      <Layout title={`${page} | Turing IA`}>
         <div className='container'>
           {/* What we do */}
           <div className={Styles.sectioncontent} id='what-we-do'>
-            <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>What we do</h1>
-            <p className={`${Styles.textcontent} ${Styles.animated} ${Styles.slideInRight}`}>Slalom is a global consulting firm that helps people and organizations dream bigger, move faster, and build better tomorrows for all.</p>
-            <a className="btn btn-outline-primary me-3" href="#" role="button">Learn More</a>
-            <a className="btn btn-outline-primary me-3" href="#our-work" role="button">Our Work</a>
+            <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>A que nos dedicamos</h1>
+            <p className={`${Styles.textcontent} ${Styles.animated} ${Styles.slideInRight}`}>Contribuimos con su empresa para mejorar la toma de decisiones a través de sus datos.</p>
+            <Link href="/servicios">
+              <a className="btn btn-outline-primary me-3" role="button">Conoce Mas</a>
+            </Link>
+            <Link href="/nosotros">
+              <a className="btn btn-outline-primary me-3" role="button">Nuestro Trabajo</a>
+            </Link>
+          </div>
+        </div>
+        {/* Description */}
+        <div className={Styles.bluesection}>
+          <div className='container'>
+            <div className='row text-center'>
+              <div className='col-xl-6 col-sm-12'>
+                <h1>LA MANERA IDEAL PARA MANEJAR TUS DATOS</h1>
+                <h2>Somos una empresa Consultora de Big Data en México, desde hace 13 años proporcionamos servicios en Business Analytics mediante Knowledge Discovery in Database (KDD).</h2>
+              </div>
+              <div className='col-xl-6 d-none d-xl-block'>
+                <div className={Styles.blueimagewrapper}>
+                  <img className='img-fluid' src="technology-ge45fb9b3d_1920.jpg" alt="..." />
+                </div>
+              </div>
+            </div>
+            <div className='row mt-3 mb-2'>
+              <div className='text-center'>
+                <h1>Transforma e impulsa tu negocio</h1>
+                <a href="/" className='btn btn-primary mt-4 mb-4'>Contactanos</a>
+              </div>
+            </div>
+            <div className='row mt-4 mb-4'>
+              <h1 className='mt-4 mb-4'>Conoce nuestros servicios</h1>
+              <div className='col-md-2 col-sm-12'>
+                <p>
+                  IMPLEMENTACIÓN DE PROYECTOS (BUSINESS ANALYST)
+                  <br />
+                  <a className={Styles.link} href="">Conoce Mas...</a>
+                </p>
+              </div>
+              <div className='col-md-2 col-sm-12'>
+                <p>
+                  DESARROLLO DE APLICACIONES
+                  <br />
+                  <a className={Styles.link} href="">Conoce Mas...</a>
+                </p>
+              </div>
+              <div className='col-md-2 col-sm-12'>
+                <p>
+                  WORKSHOP (BLUE PRINT)
+                  <br />
+                  <a className={Styles.link} href="">Conoce Mas...</a>
+                </p>
+              </div>
+              <div className='col-md-2 col-sm-12'>
+                <p>
+                  CAPACITACIÓN
+                  <br />
+                  <a className={Styles.link} href="">Conoce Mas...</a>
+                </p>
+              </div>
+              <div className='col-md-2 col-sm-12'>
+                <p>
+                  VENTA DE SOFTWARE
+                  <br />
+                  <a className={Styles.link} href="">Conoce Mas...</a>
+                </p>
+              </div>
+              <div className='col-md-2 col-sm-12'>
+                <p>
+                  VENTA DE HARDWARE
+                  <br />
+                  <a className={Styles.link} href="">Conoce Mas...</a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         {/* Our Work */}
         <div className={Styles.sectioncontent} id='our-work'>
           <div className='container'>
-            <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>Our work</h1>
-            <Carousel />
-            <div className='text-center'>
-              <a href='#' className="btn btn-outline-primary">view all case studies</a>
-            </div>
+            <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>Nuestro trabajo</h1>
+            <Carousel>
+              {
+                proyectos.map(({ title, text, imageUrl }, i) =>
+                (
+                  <Card key={i} title={title} text={text} imageUrl={imageUrl} />
+                ))
+              }
+            </Carousel>
           </div>
           {/* technologys */}
           <div className={Styles.greysection}>
             <div className={Styles.techcontent}>
               <div className='row text-center'>
-                <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>TECHNOLOGY PLATFORMS</h1>
-                <div class="col-12 col-lg-10 text-center m-auto mt-4 mb-2">
-                  <a href="/platforms/aws-cloud-consulting" title="AWS" target="">
-                    <img alt="AWS logo grayscale" height="70" width="auto" src="https://www.slalom.com/sites/default/files/2019-12/platform-aws-up.svg" />
-                  </a>
-                  <a href="/platforms/google-cloud" title="Google Cloud" target="">
-                    <img alt="Google Cloud logo" height="70" width="auto" src="https://www.slalom.com/sites/default/files/2019-12/platform-google-cloud-up.svg" />
-                  </a>
-                  <a href="/platforms/microsoft" title="Microsoft" target="">
-                    <img alt="Microsoft logo" height="70" width="auto" src="https://www.slalom.com/sites/default/files/2019-12/platform-microsoft-up.svg" />
-                  </a>
-                  <a href="/platforms/salesforce-consulting" title="Salesforce" target="">
-                    <img alt="Salesforce logo" height="70" width="auto" src="https://www.slalom.com/sites/default/files/2019-12/platform-salesforce-up.svg" />
-                  </a>
-                  <a href="/platforms/snowflake" title="Snowflake" target="">
-                    <img alt="Snowflake logo" height="70" width="auto" src="https://www.slalom.com/sites/default/files/2020-12/platform-snowflake-140x70.svg" />
-                  </a>
-                  <a href="/platforms/tableau" title="Tableau" target="">
-                    <img alt="Tableau logo" height="70" width="auto" src="https://www.slalom.com/sites/default/files/2019-12/platform-tableau-up.svg" />
-                  </a>
-                </div>
+                <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft} mb-4`}>Tecnologias que utilizamos</h1>
+                <Gallery>
+                  {
+                    tech.map(({ title, text, imageUrl }, i) =>
+                    (
+                      <Picture key={i} title={title} text={text} imageUrl={imageUrl} />
+                    ))
+                  }
+                </Gallery>
               </div>
-                <p className='text-center'>We have strong partnerships with the world's top tech companies.</p>
-                <div className='text-center'>
-                  <a href='#' className="btn btn-outline-primary">view all</a>
-                </div>
             </div>
           </div>
         </div>
-        
-
-        {/* who we are */}
-        <div id='who-we-are'>
-          <section className={Styles.whoWeAreContent}>
-            <div className='container'>
-                <div className='row'>
-                  <div class="col-12 col-sm-6 offset-sm-3 col-xl-6 offset-xl-3">
-                    <div className={Styles.whoWeAreImages1}>
-                      <span className={Styles.whoWeAreImageSpan}>
-                        <img src="https://www.slalom.com/sites/default/files/2020-06/homepage-working-circle-2-600x600.png" alt=".." />
-                      </span>
-                    </div>
-                    <div className={Styles.whoWeAreImages2}>
-                      <span className={Styles.whoWeAreImageSpan}>
-                        <div className={Styles.imgWrapper}>
-                          <img className='img-fluid' src="https://www.slalom.com/sites/default/files/2019-03/Three-images-with-content-landscape-840x1190.jpg" alt=".." />
-                        </div>
-                      </span>
-                    </div>
-                    <div className='header-who-we-are'>
-                      <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>WHO WE ARE</h1>
-                      <p className={Styles.subTitle}>We’re advisors, strategists, and engineers focused on people, above all else.</p>
-                    </div>
-                    <div className='content-who-we-are'>
-                      <p className={Styles.aText}>Slalom teams are driven to do what's right and help you realize your vision. We believe in generating success collaboratively, leaving your organization stronger after every engagement, and building trust for the next big challenge.</p>
-                      <a href='#' className="btn btn-outline-primary">Get to know us</a>
-                    </div>
-                    
-                  </div>
-                </div>
-            </div>
-          </section>
-        </div>
-
-        {/* what we're thinking */}
-        <div className={Styles.greysection}>
+        {/* contact */}
+        <div className={Styles.sectioncontent}>
           <div className='container'>
             <div className='row'>
-              <div className='text-center'>
-                <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>WHAT WE'RE THINKING</h1>
-              </div>
-              <div className='col-md-4 col-sm-12'>
-                <ul>
-                  <li>
-                    <h2>News</h2>
-                    <p>Slalom recognized as a 4x Microsoft partner award winner across US and Canada</p>
-                  </li>
-                </ul>
-              </div>
-              <div className='col-md-8 col-sm-12'>
-                <div className='text-center'>
-                  <p className={Styles.subTitle2}>Our latest company news, whitepapers, videos, and articles.</p>
+              <h1 className={`${Styles.title} ${Styles.animated} ${Styles.slideInLeft}`}>CONTÁCTANOS</h1>
+              {/*  */}
+              <section id="contact">
+
+                <div className="contact-wrapper">
+
+                  <form id="contact-form" className="form-horizontal" role="form">
+                    <p>Dejanos tus datos y nosotros nos pondremos en contacto.</p>
+                    <div className="form-group">
+                      <div className="col-sm-12">
+                        <input type="text" className="form-control" id="name" placeholder="Tu nombre" name="name" value="" required />
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <div className="col-sm-12">
+                        <input type="email" className="form-control" id="email" placeholder="Tu correo" name="email" value="" required />
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <div className="col-sm-12">
+                        <input type="number" className="form-control" id="celnumber" placeholder="Numero de telefono" name="name" value="" required />
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <div className="col-sm-12">
+                        <input type="text" className="form-control" id="enterprise" placeholder="Tu empresa (Opcional)" name="name" value="" />
+                      </div>
+                    </div>
+
+                    <textarea className="form-control" rows="10" placeholder="Escribe tu mensaje aqui" name="message" required></textarea>
+
+                    <button className="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                      <div className="alt-send-button">
+                        Enviar
+                      </div>
+
+                    </button>
+
+                  </form>
+
+
+
+                  <div className="direct-contact-container">
+
+                    <ul className="contact-list">
+                      <li className="list-item"><span className="contact-text phone"><a href="https://calendly.com/turing-ia-web/web-client?month=2022-07" title="Contact specialist"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar" viewBox="0 0 16 16">
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                      </svg> Contacta a un especialista</a></span></li>
+
+                      <li className="list-item"><span className="contact-text phone"><a href="tel:+52 (722) 533-6638" title="Give me a call"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                      </svg> +52 (722) 533-6638</a></span></li>
+
+                      <li className="list-item"><span className="contact-text gmail"><a href="mailto:contacto@turing-ia.com" title="Send me an email"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                      </svg> contacto@turing-ia.com</a></span></li>
+
+                      <li className="list-item"><span className="contact-text place"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
+                        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                      </svg> L a V 7 a.m. - 7 p.m. UTC-6</span></li>
+
+                    </ul>
+
+                    <hr />
+                    <ul className="social-media-list">
+                      <li><a href="#" target="_blank" className="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-linkedin" viewBox="0 0 16 16">
+                          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                        </svg></a>
+                      </li>
+                      <li><a href="#" target="_blank" className="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-instagram" viewBox="0 0 16 16">
+                          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                        </svg></a>
+                      </li>
+                      <li><a href="#" target="_blank" className="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-twitter" viewBox="0 0 16 16">
+                          <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                        </svg></a>
+                      </li>
+                      <li><a href="#" target="_blank" className="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-facebook" viewBox="0 0 16 16">
+                          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                        </svg></a>
+                      </li>
+                    </ul>
+
+
+                  </div>
+
                 </div>
-                
-                <h1>Solutions</h1>
-                <h1>Articles</h1>
+
+              </section>
+
+              {/*  */}
+              <div className={Styles.mapcontact}>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.340152918516!2d-99.17377314925531!3d19.397703646757225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff7769001035%3A0x8908d745e6168858!2sTuring%20-%20Inteligencia%20Artificial!5e0!3m2!1ses!2smx!4v1657773417433!5m2!1ses!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
         </div>
-        {/* Let's talk */}
-        <h1>Your future starts today. Ready?</h1>
-        <button>Lets talk</button>
-
         {/* footer */}
 
       </Layout>

@@ -23,7 +23,7 @@
 
 .cardWrapper .card .face {
     width: 380px;
-    height: 200px;
+    height: 225px;
     transition: 0.5s;
 }
 
@@ -59,7 +59,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    padding-top: 60px;
+    padding-top: 80px;
     box-sizing: border-box;
     /* box-shadow: 0 1px 5px rgba(0,0,0,0.8); */
     transform: translateY(-100px);
@@ -88,7 +88,7 @@
 
 .cardWrapper .card .face.face2 .content h3 {
     margin: 0 0 10px 0;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 0;
     font-size: 24px;
     text-align: center;
@@ -98,4 +98,30 @@
 .cardWrapper a {
     text-decoration: none;
     color: #414141;
+}
+/* Begin Media Queries*/
+@media screen and (max-width: 850px) {
+    .cardWrapper .card .face {
+        width: 300px;
+        height: 225px;
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 569px) {
+    .cardWrapper .card .face {
+        width: 300px;
+        height: 225px;
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 410px) {
+  
+    .cardWrapper .card .face {
+        width: 300px;
+        height: 225px;
+        transition: 0.5s;
+    }
+    
 }
