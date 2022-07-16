@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const Footer = () => {
     return (
         <>
@@ -29,8 +31,11 @@ const Footer = () => {
                                 <div className="col-md-12 col-lg-9 text-md-right mb-md-0 mb-4">
                                     <h2 className="footer-heading"><a href="#" className="logo">Turing Inteligencia Artificial</a></h2>
                                     <p className="copyright">
-                                        <a href="">Aviso de privacidad</a>
+                                        <Link href="/privacidad">
+                                            <a>Aviso de privacidad</a>
+                                        </Link>
                                     </p>
+                                    <p>© Copyright Turing Inteligencia Artificial. Derechos reservados</p>
                                 </div>
                             </div>
                         </div>
@@ -39,22 +44,62 @@ const Footer = () => {
                                 <div className="col-md-4 mb-md-0 mb-4">
                                     <h2 className="footer-heading">Nuestros servicios</h2>
                                     <ul className="list-unstyled">
-                                        <li><a href="#" className="py-1 d-block">Implementación de Proyectos (Business Analyst)</a></li>
-                                        <li><a href="#" className="py-1 d-block">Workshop (Blue Print)</a></li>
-                                        <li><a href="#" className="py-1 d-block">Capacitación</a></li>
-                                        <li><a href="#" className="py-1 d-block">Venta de Software</a></li>
-                                        <li><a href="#" className="py-1 d-block">Venta de Hardware</a></li>
-                                        <li><a href="#" className="py-1 d-block">Desarrollo de Aplicaciones</a></li>
-                                        <li><a href="#" className="py-1 d-block">Balanced Scorecard</a></li>
+                                        <li>
+                                            <Link  href="/servicios/ba">
+                                                <a className="py-1 d-block">Implementación de Proyectos (Business Analyst)</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios/workshop">
+                                            <a href="#" className="py-1 d-block">Workshop (Blue Print)</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios/capacitacion">
+                                            <a href="#" className="py-1 d-block">Capacitación</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios/vsoftware">
+                                            <a href="#" className="py-1 d-block">Venta de Software</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios/hardware">
+                                            <a href="#" className="py-1 d-block">Venta de Hardware</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios/dsoftware">
+                                            <a href="#" className="py-1 d-block">Desarrollo de Aplicaciones</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios/scorecard">
+                                            <a href="#" className="py-1 d-block">Balanced Scorecard</a>
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div className="col-md-4 mb-md-0 mb-4">
                                     <h2 className="footer-heading">Mapa de sitio</h2>
                                     <ul className="list-unstyled">
-                                        <li><a href="#" className="py-1 d-block">Inicio</a></li>
-                                        <li><a href="#" className="py-1 d-block">Nosotros</a></li>
-                                        <li><a href="#" className="py-1 d-block">Servicios</a></li>
-                                        <li><a href="#" className="py-1 d-block">Tableau</a></li>
+                                        <li>
+                                            <Link href="/">
+                                                <a className="py-1 d-block">Inicio</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/nosotros">
+                                                <a className="py-1 d-block">Nosotros</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link  href="/servicios">
+                                                <a className="py-1 d-block">Servicios</a>
+                                            </Link>
+                                        </li>
+                                        <li><a href="/" className="py-1 d-block">Tableau</a></li>
                                     </ul>
                                 </div>
                                 <div className="col-md-4 mb-md-0 mb-4">

@@ -14,7 +14,7 @@ const Card = ({title='Title',text='text content',imageUrl='img_1.jpg'}) => {
                 </div>
                 <div className={`${CardStyle.face} ${CardStyle.face2}`}>
                     <div className={CardStyle.content}>
-                        <a href="https://www.linkedin.com/in/adamdipinto/" target="_blank">
+                        <a href="/servicios" target="_blank">
                             <h3>
                                 {title}
                             </h3>

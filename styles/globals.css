@@ -9,6 +9,8 @@ a {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+/* navbar */
 .brandTitle {
   text-decoration: none;
   font-size: 2rem;
@@ -42,9 +44,6 @@ a {
 .navbar a:hover{
   color: #a3bfff;
 }
-.btn-close{
-  color: white;
-}
 .offcanvas-title{
   font-size: 2.3rem;
   font-weight: bold;
@@ -56,10 +55,13 @@ a {
 .offcanvas-body{
   background: #00001e;
 }
+/* end navbar */
 
 /* carousel */
 .CarouselContent {
   padding: 2rem 1rem;
+  width: 100%;
+  height: 100%;
 }
 
 /* gallery */
@@ -147,9 +149,7 @@ a {
   max-width: 840px;
 }
 
-/* Left contact page */
 .form-horizontal {
-  /*float: left;*/
   max-width: 100%;
   font-family: 'Lato';
   font-weight: 400;
@@ -184,12 +184,10 @@ textarea {
   letter-spacing: 2px;
 }
 
-/* Begin Right Contact Page */
 .direct-contact-container {
   max-width: 400px;
 }
 
-/* Location, Phone, Email Section */
 .contact-list {
   list-style-type: none;
   margin-left: -30px;
@@ -344,7 +342,7 @@ footer a:hover{
   border-radius: 40px;
 }
 
-/* Begin Media Queries*/
+/* Media Queries*/
 @media screen and (max-width: 850px) {
   .contact-wrapper {
     display: flex;

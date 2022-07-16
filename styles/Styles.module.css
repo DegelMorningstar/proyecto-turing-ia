@@ -1,3 +1,4 @@
+/* Hero */
 .hero {
   width: 100%;
   height: 88vh;
@@ -8,8 +9,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
+
 .videoBG {
   width: 100%;
   height: 100%;
@@ -32,6 +34,26 @@
   margin-bottom: 3rem;
 }
 
+.heroStatic {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heroSC {
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 20%;
+}
+.heroSC h1{
+  font-size: 3.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+/* Text */
 .title {
   font-size: 1.7rem;
   text-transform: uppercase;
@@ -42,23 +64,62 @@
 .textcontent {
   font-size: 2.3rem;
   line-height: 2.8rem;
-  padding-bottom: 2.7rem;
+  padding-bottom: 1.7rem;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+.subTitle {
+  font-size: 4rem;
+  line-height: 4.5rem;
+  padding-bottom: 3.2rem;
+}
+.subTitle2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 4.5rem;
+  padding-bottom: 3.2rem;
+}
+.aText {
+  padding: 0 150px;
+  font-size: 1.2rem;
+  padding-bottom: 5rem;
+}
+.trophyText {
+  font-size: 1.2rem;
+}
+.trophy {
+  font-size: 2rem;
+  margin-left: 7px;
+  color: #ffd700;
+}
+.accordText {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+/* Sections */
 .sectioncontent {
   width: 100%;
-  padding-top: 150px;
+  margin-bottom: 5rem;
+  padding-top: 50px;
+}
+.sectioncontent2 {
+  width: 100%;
+}
+.section2 {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
 }
 .bluesection {
-  background-color: #00001E;
+  background-color: #00001e;
   width: 100%;
   margin-top: 40px;
   padding-top: 80px;
 }
-.bluesection h1{
+.bluesection h1 {
   font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
@@ -82,7 +143,6 @@
   line-height: 2rem;
   padding: 15px;
   padding-bottom: 2.7rem;
-
 }
 .bluesection .link {
   text-decoration: none;
@@ -94,14 +154,16 @@
 .bluesection .link:hover {
   color: #a3bfff;
 }
-.blueimagewrapper{
+.blueimagewrapper {
   padding: 0px 30px;
   margin-bottom: 10px;
-
+}
+.blueimagewrapper2 {
+  padding: 0px 10px;
+  margin-bottom: 10px;
 }
 .greysection {
   width: 100%;
-  /* height: 300px; */
   margin-top: 20px;
   margin-bottom: 20px;
   padding-top: 40px;
@@ -112,57 +174,90 @@
   width: 100%;
   height: 100%;
 }
-.whoWeAreContent {
-  padding-top: 10rem;
-  padding-bottom: 1rem;
-  display: block;
-  position: relative;
-}
-.subTitle {
-  font-size: 4rem;
-  line-height: 4.5rem;
-  padding-bottom: 3.2rem;
-}
-.subTitle2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  line-height: 4.5rem;
-  padding-bottom: 3.2rem;
-}
-.aText {
-  font-size: 2rem;
-  line-height: 3.4rem;
-  padding-bottom: 5rem;
-  color: #6f6f6f;
-}
-.whoWeAreImageSpan {
-  opacity: 1;
-  visibility: visible;
-}
-.whoWeAreImages1 {
-  position: absolute;
-  right: 16px;
-  top: 2;
-}
-.whoWeAreImages2 {
-  position: absolute;
-  left: 156px;
-  bottom: 50px;
-}
-.imgWrapper {
-  width: 350px;
-  height: auto;
-}
-.mapcontact{
+.mapcontact {
   width: 100%;
   height: 600px;
   padding-top: 100px;
   padding-bottom: 50px;
 }
 
+.imagewrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.smallimage {
+  width: 300px;
+  height: auto;
+}
 
+.imagetext {
+  background: #00001e;
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  width: 400px;
+  height: 100px;
+  z-index: 1;
+}
+.imagetext {
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  padding: 30px;
+}
+.accordImgWrapper {
+  width: 30%;
+  height: 30%;
+  margin: 0 auto;
+}
 
-
+.bgsection {
+  margin: 60px 0;
+  width: 100%;
+  height: 1000px;
+  background: url("/nasa-Q1p7bh3SHj8-unsplash.jpg") no-repeat center
+    center/cover;
+  background-size: cover;
+  background-attachment: fixed;
+  border-bottom: 20px solid #00001e;
+  color: white;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.bgsection p {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+.bgsection2 {
+  margin: 60px 0;
+  width: 100%;
+  height: 900px;
+  background: url("/robynne-hu-HOrhCnQsxnQ-unsplash.jpg") no-repeat center
+    center/cover;
+  background-size: cover;
+  background-attachment: fixed;
+  border-bottom: 20px solid #00001e;
+  color: white;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.bgsection2 p {
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+.bgblue {
+  background-color: #00001e;
+  height: 100%;
+  padding: 50px;
+}
+/* animation */
 .animated.slideInLeft {
   animation: slideInLeft 2.5s ease both;
 }
@@ -191,35 +286,59 @@
   }
 }
 
-/* Begin Media Queries*/
+/* Media Queries*/
+@media screen and (max-width: 1200px) {
+  .bgsection {
+    margin: 20px 0;
+    width: 100%;
+    height: 1500px;
+  }
+  .bgsection p {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
+}
 @media screen and (max-width: 850px) {
   .bluesection p {
     font-size: 0.8rem;
     padding: 5px;
-  
   }
   .bluesection .link {
     font-size: 0.8rem;
     line-height: 2rem;
     padding: 1px;
   }
+  .trophyText {
+    font-size: 1rem;
+  }
+  .bgsection {
+    margin: 20px 0;
+    width: 100%;
+    height: 1500px;
+  }
+  .bgsection p {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 569px) {
-  
 }
 
 @media screen and (max-width: 410px) {
-   .hero {
+  .trophyText {
+    font-size: 1rem;
+  }
+  .hero {
     width: 100%;
     height: 100vh;
   }
-  
+
   .contentHero h1 {
     font-size: 3.2rem;
     margin-bottom: 3rem;
-  } 
-  .contentHero{
+  }
+  .contentHero {
     padding: 30px;
-  } 
+  }
 }
